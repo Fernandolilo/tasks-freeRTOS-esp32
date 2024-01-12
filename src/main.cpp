@@ -59,6 +59,14 @@ void vTask2(void *pvParameters){
   {
        Serial.println("Task2: " + String(cont++));
        vTaskDelay(pdMS_TO_TICKS(1000));
+
+//deletando uma task
+       if(cont >= 10){
+         Serial.println(" Deletando Task 1");
+         vTaskDelete(task_1_handle);
+         digitalWrite(LED, LOW);
+         delay(2000);
+       }
   }
   
 }
